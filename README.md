@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Audit self-hosted runners
-        uses: othy19904-eng/atlassian-revenue-integrity@v1
+        uses: achirothmane/atlassian-revenue-integrity@v1
         with:
           scope: organization
           owner: your-org
@@ -88,6 +88,20 @@ Self-hosted runner fleets are frequently pinned in VM images, container images, 
 Runner Fleet Doctor is read-only. It sends authenticated requests only to the configured GitHub API base URL, never prints the supplied token, and performs no mutation of runners or repositories.
 
 Use the narrowest token permissions possible and rotate the token according to your organization's policy.
+
+## Release and control provenance
+
+The current implementation is on `main` at commit `6d863e4e7a697c7c3746a92282a2e2fbd723aa31`. The repository also has a movable `v1` branch pointing at that commit.
+
+At the C10 claim audit, GitHub reports both `main` and `v1` as `protected=false`, and the repository exposes no repository rulesets. Therefore `@v1` is a convenience branch, **not an immutable release or GitHub-enforced protected channel**.
+
+For reproducible evaluation, pin the exact commit:
+
+```yaml
+uses: achirothmane/atlassian-revenue-integrity@6d863e4e7a697c7c3746a92282a2e2fbd723aa31
+```
+
+No external adoption, Marketplace listing, production fleet deployment, or paid usage is claimed by this repository evidence.
 
 ## Development
 
