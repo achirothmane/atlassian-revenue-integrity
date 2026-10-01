@@ -1,6 +1,6 @@
 name: "Runner Fleet Doctor"
 description: "Detect self-hosted GitHub Actions runners nearing version deprecation before jobs stop."
-author: "othy19904-eng"
+author: "achirothmane"
 branding:
   icon: "activity"
   color: "orange"
